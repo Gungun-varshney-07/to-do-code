@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        .todo-container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .todo-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"] {
+            flex: 1;
+            padding: 5px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <div class="todo-item">
+            <input type="text" placeholder="Enter your to-do item">
+            <input type="submit" value="Add">
+        </div>
+        <ul id="todo-list"></ul>
+    </div>
+
+    <script>
+        const todoList = document.getElementById('todo-list');
+        const addItemButton = document.querySelector('input[type="submit"]');
+        const inputField = document.querySelector('input[type="text"]');
+        
+        addItemButton.addEventListener('click', function() {
+            if (inputField.value !== '') {
+                const newItem = document.createElement('li');
+                newItem.textContent = inputField.value;
+                todoList.appendChild(newItem);
+                inputField.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
